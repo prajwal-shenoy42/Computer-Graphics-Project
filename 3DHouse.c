@@ -300,7 +300,7 @@ void rainwater()
 	glEnd();
 
 	glPushMatrix();
-	glTranslated(0.6, -0.675, 0.425);						//left wall
+	glTranslated(0.6, -0.675, 0.425);			//left wall
 	glScaled(2, 1, 1);
 	glutSolidCube(0.05);
 	glPopMatrix();
@@ -569,7 +569,7 @@ void house(point a, point b, point c, point d, point e, point f, point g, point 
 {
 	if (housepolygon)
 	{
-		glColor3f(1, 0.98, 0.8);
+		glColor3f(0.6, 0.4, 0.2);
 		glBegin(GL_POLYGON);
 		glVertex3fv(a);
 		glVertex3fv(e);
@@ -941,7 +941,7 @@ int main(int argc, char **argv)
 	int c_smenu, rotatefan, mouserotate, sofatranslate, scalecompound, viewtype, housewall, lightsonoff;
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-	glutInitWindowSize(500, 500);
+	glutInitWindowSize(800, 800);
 	glutCreateWindow("3D HOUSE");
 	initfirst();
 	glutDisplayFunc(first);
