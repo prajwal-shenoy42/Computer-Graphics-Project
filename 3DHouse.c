@@ -85,21 +85,21 @@ void sofa1()
 
 	glColor3f(0.93, 0.84, 0.72);
 	glPushMatrix();
-	glTranslated(-0.4 + sofa_s, -0.3125, -0.25 + sofa_d);		//back
+	glTranslated(-0.4 + sofa_s, -0.3125, -0.25 + sofa_d);	//back
 	glScaled(2, 0.75, 1);
 	glutSolidCube(0.1);
 	glPopMatrix();
 
 	glColor3f(0.93, 0.84, 0.72);
 	glPushMatrix();
-	glTranslated(-0.4 + sofa_s, -0.3125, 0.25 + sofa_d);		//front
+	glTranslated(-0.4 + sofa_s, -0.3125, 0.25 + sofa_d);	//front
 	glScaled(2, 0.75, 1);
 	glutSolidCube(0.1);
 	glPopMatrix();
 
 	glColor3f(0.87, 0.72, 0.53);
 	glPushMatrix();
-	glTranslated(-0.475 + sofa_s, -0.275, 0 + sofa_d);			//rest
+	glTranslated(-0.475 + sofa_s, -0.275, 0 + sofa_d);		//rest
 	glScaled(0.5, 1.5, 4);
 	glutSolidCube(0.1);
 	glPopMatrix();
@@ -276,31 +276,31 @@ void rainwater()
 	glColor3f(0.47, 0.53, 0.60);
 	glBegin(GL_POLYGON);
 	glVertex3f(0.55, 0.252, 0.4);
-	glVertex3f(0.5, 0.251, 0.4);			//back
+	glVertex3f(0.5, 0.251, 0.4);		//back
 	glVertex3f(0.5, -0.7, 0.4);
 	glVertex3f(0.55, -0.7, 0.4);
 	glEnd();
 	glBegin(GL_POLYGON);
-	glVertex3f(0.55, 0.250, 0.45);				//front
+	glVertex3f(0.55, 0.250, 0.45);		//front
 	glVertex3f(0.5, 0.250, 0.45);
 	glVertex3f(0.5, -0.7, 0.45);
 	glVertex3f(0.55, -0.7, 0.45);
 	glEnd();
 	glBegin(GL_POLYGON);
 	glVertex3f(0.5, 0.251, 0.4);
-	glVertex3f(0.5, 0.250, 0.45);				//left
+	glVertex3f(0.5, 0.250, 0.45);		//left
 	glVertex3f(0.5, -0.7, 0.45);
 	glVertex3f(0.5, -0.7, 0.4);
 	glEnd();
 	glBegin(GL_POLYGON);
-	glVertex3f(0.55, 0.251, 0.4);				//right
+	glVertex3f(0.55, 0.251, 0.4);		//right
 	glVertex3f(0.55, 0.250, 0.45);
 	glVertex3f(0.55, -0.7, 0.45);
 	glVertex3f(0.55, -0.7, 0.4);
 	glEnd();
 
 	glPushMatrix();
-	glTranslated(0.6, -0.675, 0.425);			//left wall
+	glTranslated(0.6, -0.675, 0.425);	//left wall
 	glScaled(2, 1, 1);
 	glutSolidCube(0.05);
 	glPopMatrix();
@@ -469,7 +469,7 @@ void compound()
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslated(-0.25, -0.4 + dy_c, 0.975);						//front wall
+	glTranslated(-0.25, -0.4 + dy_c, 0.975);					//front wall
 	glScaled(15, 2 * dy_s, 0.5);
 	glutSolidCube(0.1);
 	glPopMatrix();
