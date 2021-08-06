@@ -1,1 +1,7 @@
-# CGV_Assignment
+# CGV_Assignment - 3D House
+
+This is a Computer Graphics and Visualization Mini Project based on a 3D House which has been developed using the C Programming Language. This project produces the view of a 3D House both inside and outside of the house. A Menu has been provided to modify the various features. There are 5 components which are placed inside the house which includes a fan, a sofa which can be translated using the wasd keys after enabling the option from the given menu, a tv, a table, and a teapot placed on the table. Each of these components have been designed in a seperate function. The outside of the house has a tree and a system made for collecting rainwater. The house is surrounded by a compound wall whose height can be adjusted using the options that have been provided in the menu. The APIs that are used in implementing these components are glutSolidCube(), glutSolidTeapot(), glutSolidCone() and more. An animation has been implemented which shows the rotation of the fan inside the house. The rotational speed of the fan can also be adjusted. Lighting has been implemented using the inbuilt OPENGL lighting functions. This project implements both the orthographic and perspective views. Options have been provided in the menu to switch between these views. The house can also be moved along the X, Y and Z axis using the x,y and z keys on the keyboard.
+
+Team Members : 
+Yashas H - 1BY18CS191
+Prajwal Shenoy - 1BY18CS224
