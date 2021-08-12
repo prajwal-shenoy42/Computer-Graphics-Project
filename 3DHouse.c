@@ -894,12 +894,12 @@ void keyboard2(unsigned char c, int x, int y)
 	glutPostRedisplay();
 }
 	
-void strokeString(float x, float y, float sx, float sy, char *string, int width)
+void strokeString(float x, float y, float sx, float sy, char *string, int width) 
 {
 	char *c;
-	glLineWidth(width);
-	glPushMatrix();
-	glTranslatef(x, y, 0);
+	glLineWidth(width); //specify the width of rasterized lines
+	glPushMatrix(); //push and pop the current matrix stack
+	glTranslatef(x, y, 0); //multiply the current matrix by a translation matrix
 	glScalef(sx, sy, 0);
 	for (c = string; *c != '\0'; c++)
 		glutStrokeCharacter(GLUT_STROKE_ROMAN, *c);
@@ -910,7 +910,7 @@ void first()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(0.75, 0.75, 0.75);
-	strokeString(100, 850, 0.2, 0.2, "BMS INSTITUTE OF TECHNOLOGY AND MANAGEMENT", 2);
+	strokeString(100, 850, 0.2, 0.2, "BMS INSTITUTE OF TECHNOLOGY AND MANAGEMENT", 2); //user-defined method
 	strokeString(100, 700, 0.3, 0.3, "DEPARTMENT OF COMPUTER SCIENCE", 4);
 	strokeString(300, 620, 0.3, 0.3, "AND ENGINEERING", 4);
 	strokeString(180, 460, 0.3, 0.3, "COMPUTER GRAPHICS PROJECT ON", 2);
