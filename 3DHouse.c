@@ -897,21 +897,21 @@ void keyboard2(unsigned char c, int x, int y)
 void strokeString(float x, float y, float sx, float sy, char *string, int width) 
 {
 	char *c;
-	glLineWidth(width); //specify the width of rasterized lines
-	glPushMatrix(); //push and pop the current matrix stack
-	glTranslatef(x, y, 0); //multiply the current matrix by a translation matrix
-	glScalef(sx, sy, 0);
+	glLineWidth(width); 		//specify the width of rasterized lines
+	glPushMatrix(); 			//push and pop the current matrix stack
+	glTranslatef(x, y, 0); 		//multiply the current matrix by a translation matrix. x,y,z are coordinates for the translation vector. Initially, each of the stacks contains one matrix, an identity matrix.
+	glScalef(sx, sy, 0); 		//multiply the current matrix by a general scaling matrix. x,y,z are used to specify the scale factors along the 3 axes.
 	for (c = string; *c != '\0'; c++)
-		glutStrokeCharacter(GLUT_STROKE_ROMAN, *c);
-	glPopMatrix();
+		glutStrokeCharacter(GLUT_STROKE_ROMAN, *c); 		//Renders characters(String) in Roman font.
+	glPopMatrix(); 		//pops the current matrix stack, replacing the current matrix with the one below it on the stack
 }
 
 void first()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(0.75, 0.75, 0.75);
-	strokeString(100, 850, 0.2, 0.2, "BMS INSTITUTE OF TECHNOLOGY AND MANAGEMENT", 2); //user-defined method
-	strokeString(100, 700, 0.3, 0.3, "DEPARTMENT OF COMPUTER SCIENCE", 4);
+	strokeString(100, 850, 0.2, 0.2, "BMS INSTITUTE OF TECHNOLOGY AND MANAGEMENT", 2); 		//user-defined method
+	strokeString(100, 700, 0.3, 0.3, "DEPARTMENT OF COMPUTER SCIENCE", 4); 		//First 2 values are for position. Next 2 are for font size.
 	strokeString(300, 620, 0.3, 0.3, "AND ENGINEERING", 4);
 	strokeString(180, 460, 0.3, 0.3, "COMPUTER GRAPHICS PROJECT ON", 2);
 	glColor3f(0, 0.5, 0.5);
