@@ -33,7 +33,7 @@ void housefront(point, point, point, point);
 
 int lightflag = 0;
 int housepolygon = 1;
-int orthoflag = 0;
+int orthoflag = 0; 			//For parallel projection
 float sofa_d = 0.0;
 float sofa_w = 0.0;
 float sofa_a = 0.0;
@@ -79,8 +79,8 @@ void sofa1()
 	glColor3f(0.96, 0.64, 0.38);
 	glPushMatrix();
 	glTranslated(-0.4 + sofa_s, -0.425, 0 + sofa_d);		//bottom
-	glScaled(2, 1.5, 6);
-	glutSolidCube(0.1);
+	glScaled(2, 1.5, 6); 	//multiplies the current matrix by a general scaling matrix
+	glutSolidCube(0.1);		//renders a solid or wireframe cube
 	glPopMatrix();
 
 	glColor3f(0.93, 0.84, 0.72);
@@ -106,13 +106,13 @@ void sofa1()
 }
 void myreshape(int w, int h)
 {
-	glViewport(0, 0, w, h);
+	glViewport(0, 0, w, h); //set the viewport. x,y specify lower left corner of the viewport rect and w,h specify the viewports height and width
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	if (w <= h)
 	{
-		if (orthoflag)
-			glOrtho(-1.0, 1.0, -1.0*((GLfloat)h / (GLfloat)w), 1.0*((GLfloat)h / (GLfloat)w), -20.0, 20.0);
+		if (orthoflag) 
+			glOrtho(-1.0, 1.0, -1.0*((GLfloat)h / (GLfloat)w), 1.0*((GLfloat)h / (GLfloat)w), -20.0, 20.0); //L,R,B,T,N,F values
 		else
 			glFrustum(-1.0, 1.0, -1.0*(GLfloat)h / (GLfloat)w, 1.0*(GLfloat)h / (GLfloat)w, 1.0, 10.0);
 	}
@@ -131,7 +131,7 @@ void display()
 {
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	GLfloat mat_ambient[] = { 0.7, 0.7, 0.7, 1.0 };
+	GLfloat mat_ambient[] = { 0.7, 0.7, 0.7, 1.0 }; 	//GLFloat values are not system dependent
 	GLfloat mat_diffuse[] = { 0.5, 0.5, 0.5, 1.0 };
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat mat_shininess[] = { 50.0 };
@@ -151,12 +151,12 @@ void display()
 		break;
 	}
 
-	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
+	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient); 	//Specifying material parameters for lighting model
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
 	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-	glLightfv(GL_LIGHT0, GL_POSITION, lightposition);
+	glLightfv(GL_LIGHT0, GL_POSITION, lightposition);	//GL_LIGHT i specifies which light source it is
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, lightintensity);
 	glLightfv(GL_LIGHT0, GL_SPECULAR, mat_specular);
 	glLightfv(GL_LIGHT1, GL_POSITION, lightposition2);
@@ -189,7 +189,7 @@ void display()
 	}
 
 	glLoadIdentity();
-	gluLookAt(viewer[0], viewer[1], viewer[2], 0, 0, 0, 0, 1, 0);
+	gluLookAt(viewer[0], viewer[1], viewer[2], 0, 0, 0, 0, 1, 0); //specify viewing angle
 	glRotatef(theta[0], 1, 0, 0);
 	glRotatef(theta[1], 0, 1, 0);
 	glRotatef(theta[2], 0, 0, 1);
@@ -215,7 +215,7 @@ void display()
 	glutSwapBuffers();
 }
 
-void backMenu(int value)
+void backMenu(int value)	
 {
 	switch (value)
 	{	
@@ -223,7 +223,7 @@ void backMenu(int value)
 		break;
 		case 2:back = 2;
 		break;
-		case 3:back = 3;
+		case 3:back = 3;				//For changing the background color
 		break;
 		case 4:back = 4;
 		break;
@@ -884,12 +884,12 @@ void keyboard2(unsigned char c, int x, int y)
 	switch (c)
 	{
 	case 13:
-		glutDisplayFunc(display);
-		glutMouseFunc(mouse);
-		glutIdleFunc(spin);
-		glutReshapeFunc(myreshape);
-		glutKeyboardFunc(keys);
-		break;
+		glutDisplayFunc(display);  	//Calls the current window which is the 3D House
+		glutMouseFunc(mouse);		//Passing mouse keys for house rotation
+		glutIdleFunc(spin);			//Fan spins
+		glutReshapeFunc(myreshape);	//Reshapes the current window
+		glutKeyboardFunc(keys); 	//Passing keyboard keys
+		break;						//All callback functions
 	}
 	glutPostRedisplay();
 }
